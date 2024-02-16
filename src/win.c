@@ -1,3 +1,4 @@
+#include <SDL_main.h>
 #include "win.h"
 #include "log.h"
 
@@ -5,6 +6,7 @@ static SDL_Window* window = NULL;
 static SDL_Surface* emuDisplaySurf = NULL;
 
 int Win_InitWindow() {
+	SDL_SetMainReady();
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0) {
 		LOG_E("failed to initialize SDL2: %s", SDL_GetError());
 		return 1;

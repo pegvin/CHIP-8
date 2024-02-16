@@ -23,15 +23,9 @@ else()
 	add_definitions(-D_NDEBUG)
 endif()
 
-# Windows Related Shenanigans for SDL2
-if(WIN32)
-	add_executable(chip8 WIN32 ${SRC_FILES})
-else()
-	add_executable(chip8 ${SRC_FILES})
-endif()
-
+add_executable(chip8 ${SRC_FILES})
 target_include_directories(chip8 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/)
-target_compile_definitions(chip8 PUBLIC _CRT_SECURE_NO_WARNINGS)
+target_compile_definitions(chip8 PUBLIC _CRT_SECURE_NO_WARNINGS SDL_MAIN_HANDLED=1)
 find_package(SDL2 REQUIRED CONFIG REQUIRED COMPONENTS SDL2)
 
 # Prefer Linking With SDL2 Statically But If Not Available, Link Dynamically.
