@@ -48,8 +48,5 @@ make all -j4
 you will have a executable named `chip-8`, run the executable and pass a path to a rom...
 
 ---
-## License
-this project is Licensed under [BSD 3-Clause](./LICENSE) License.
-
----
 # Thanks
+
